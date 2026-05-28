@@ -1,4 +1,4 @@
-"""Integration tests for the Meal Mayhem FastAPI server."""
+"""Integration tests for the Tacos & Burritos FastAPI server."""
 from __future__ import annotations
 
 import asyncio
@@ -6,13 +6,13 @@ import json
 import re
 import pytest
 
-pytest.importorskip("meal_mayhem")
+pytest.importorskip("server")
 pytest.importorskip("httpx")
 pytest.importorskip("fastapi")
 
 from fastapi.testclient import TestClient
 
-from meal_mayhem import server as server_mod
+import server as server_mod
 
 ROOM_CODE_RE = re.compile(r"^[0-9]{4}$")  # digits only
 

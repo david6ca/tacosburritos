@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import pytest
 
-from meal_mayhem.ai import EasyAI, HardAI
-from meal_mayhem.models import Move
+from ai import EasyAI, HardAI
+from models import Move
 
 
 def test_easy_ai_returns_legal_move(make_engine):

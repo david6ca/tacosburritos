@@ -1,4 +1,4 @@
-"""Pydantic v2 data models for Taco vs. Burrito (package: meal_mayhem)."""
+"""Pydantic v2 data models for Tacos & Burritos."""
 from __future__ import annotations
 
 from typing import Any, Literal, Optional

@@ -4,11 +4,11 @@ from __future__ import annotations
 import random
 import pytest
 
-pytest.importorskip("meal_mayhem")
+pytest.importorskip("engine")
 
-from meal_mayhem import cards as cards_mod  # noqa: E402
-from meal_mayhem import engine as engine_mod  # noqa: E402
-from meal_mayhem import models as models_mod  # noqa: E402
+import cards as cards_mod  # noqa: E402
+import engine as engine_mod  # noqa: E402
+import models as models_mod  # noqa: E402
 
 
 @pytest.fixture

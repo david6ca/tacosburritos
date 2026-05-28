@@ -12,8 +12,7 @@
 > unblockable; Trash Panda limited to 2× per game per HI/TP name.
 
 **Working title:** Taco vs. Burrito (digital adaptation of the real card game by Alex Butler / HotPatato Games, 2019).
-**Package name (legacy, retained):** `meal_mayhem`.
-**Status:** Draft v0.2 — faithful rewrite replacing the prior "Meal Mayhem" clean-room spec.
+**Status:** Draft v0.2.
 **Target stack:** Python 3.11+ (FastAPI + `websockets`) authoritative server, vanilla JS/HTML/CSS browser client.
 **Deployment target:** example.com.
 
@@ -518,7 +517,7 @@ For every card that requires a choice, this matrix lists: **who picks target**, 
 
 1. **Draw is automatic.** On `START_TURN` server draws 1 card. If it is `Health Inspector`, the Meal-trash effect resolves before phase advances to `ACT`.
 2. **Move equality.** `Move` is a pydantic v2 model; deterministic field values; no random ids in `legal_moves()`.
-3. **Illegal moves.** Engine raises `meal_mayhem.engine.IllegalMoveError(reason, attempted)`. Server catches → `MOVE_REJECTED` to the offending socket only.
+3. **Illegal moves.** Engine raises `engine.IllegalMoveError(reason, attempted)`. Server catches → `MOVE_REJECTED` to the offending socket only.
 4. **Pending-choice flow.** When `Trash Panda`, `Crafty Crow`, or `Food Fight` resolves, the engine enters `PENDING_CHOICE` with the **acting player** (or the target, for trade response) required to send a `RESOLVE_CHOICE` move before any other move from anyone is accepted. Default timeout: 20s; on timeout, server picks deterministically (lowest cardId).
 5. **Instant Replay binding.** Engine maintains `lastResolvedAction`. `Instant Replay`'s payload must re-supply target/choice fields appropriate to the replayed card; the engine validates against the replayed card's schema.
 6. **Order Envy atomic swap.** Meal and hand are swapped in a single transaction; attachments (Tummy Ache, Hot Sauce Boss are already part of `Meal.slots`) travel with the Meal.

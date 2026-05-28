@@ -15,7 +15,7 @@ Total: 56 cards.
 """
 from __future__ import annotations
 
-from .models import Card
+from models import Card
 
 # 24 ingredients spread across thematic names; total points distribution = 8x1 + 8x2 + 8x3
 # (name, count, points)

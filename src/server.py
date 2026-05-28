@@ -1,4 +1,4 @@
-"""FastAPI server for Meal Mayhem."""
+"""FastAPI server for Tacos & Burritos."""
 from __future__ import annotations
 
 import asyncio
@@ -13,9 +13,9 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import ai as ai_mod
-from .engine import GameEngine, IllegalMoveError
-from .models import Move
+import ai as ai_mod
+from engine import GameEngine, IllegalMoveError
+from models import Move
 
 RECONNECT_GRACE_SECONDS: float = 30.0
 AI_MOVE_DELAY_RANGE: tuple[float, float] = (0.3, 1.5)
@@ -83,7 +83,7 @@ async def index():
     idx = _static_dir / "index.html"
     if idx.exists():
         return FileResponse(str(idx))
-    return HTMLResponse("<h1>Meal Mayhem</h1><p>Static client missing.</p>")
+    return HTMLResponse("<h1>Tacos & Burritos</h1><p>Static client missing.</p>")
 
 
 @app.get("/r/{code}")
@@ -91,7 +91,7 @@ async def room_page(code: str):
     idx = _static_dir / "index.html"
     if idx.exists():
         return FileResponse(str(idx))
-    return HTMLResponse("<h1>Meal Mayhem</h1>")
+    return HTMLResponse("<h1>Tacos & Burritos</h1>")
 
 
 # ----------------------------------------------------------------------

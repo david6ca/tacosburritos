@@ -3,10 +3,10 @@ from __future__ import annotations
 
 import pytest
 
-from meal_mayhem import cards as cards_mod
-from meal_mayhem import engine as engine_mod
-from meal_mayhem.engine import GameEngine, IllegalMoveError
-from meal_mayhem.models import Card, Meal, Move, Player, ScoreBreakdown
+import cards as cards_mod
+import engine as engine_mod
+from engine import GameEngine, IllegalMoveError
+from models import Card, Meal, Move, Player, ScoreBreakdown
 
 
 # ---------------------------------------------------------------------------
@@ -353,7 +353,7 @@ def test_order_envy_swaps_meals_and_hands(make_engine, make_card):
 
 def test_instant_replay_removed_from_deck():
     # Sanity: Instant Replay is no longer in the game.
-    from meal_mayhem import cards as cm
+    import cards as cm
     deck = cm.build_deck()
     assert not any(c.name == "Instant Replay" for c in deck)
 

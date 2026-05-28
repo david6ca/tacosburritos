@@ -4,7 +4,7 @@ from __future__ import annotations
 import random
 from typing import Optional
 
-from .models import Card, GameState, Move
+from models import Card, GameState, Move
 
 
 class EasyAI:
