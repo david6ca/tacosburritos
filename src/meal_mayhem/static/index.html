@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Taco vs Burrito 🌮</title>
+  <link rel="stylesheet" href="static/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🌮 Taco <span class="vs">vs</span> Burrito 🌯</div>
+    <button id="historyBtn" class="icon-btn hidden" title="Game history">📜</button>
+    <button id="drawCountBtn" class="icon-btn hidden" title="Cards left in draw pile">🂠 <span id="drawCount">0</span></button>
+    <button id="discardBtn" class="icon-btn hidden" title="Browse discard pile">🗑 <span id="discardCount">0</span></button>
+    <button id="leaveGameBtnTop" class="icon-btn hidden" title="Leave game">×</button>
+    <div id="conn" class="conn hidden">offline</div>
+  </header>
+
+  <main id="app">
+    <!-- HOME -->
+    <section id="home" class="screen home-screen">
+      <div class="home-hero">
+        <div class="hero-emoji">🌮 🌯</div>
+        <h1 class="hero-title">Taco <span class="vs">vs</span> Burrito</h1>
+        <p class="hero-tag">Build the tastiest meal. Sabotage everyone else.</p>
+      </div>
+      <div class="card-panel home-panel">
+        <button id="createBtn" class="primary big">🍽 Create Room</button>
+        <div class="divider"><span>or join with a code</span></div>
+        <div class="join-row">
+          <input id="joinCode" maxlength="4" placeholder="0000" inputmode="numeric" pattern="[0-9]*" class="codeInput" />
+          <button id="joinBtn" class="big">Join</button>
+        </div>
+        <input type="hidden" id="name" />
+      </div>
+    </section>
+
+    <!-- LOBBY -->
+    <section id="lobby" class="screen hidden">
+      <div class="card-panel lobby-panel">
+        <h2 class="lobby-title">Room <span id="lobbyCode" class="code"></span></h2>
+        <p class="hint">Share code <b id="lobbyCode2"></b> with friends. 2–8 players.</p>
+        <ul id="lobbyPlayers" class="lobby-players"></ul>
+        <div class="row wrap ai-row">
+          <button id="addEasyAI">+ Bot</button>
+        </div>
+      </div>
+      <div class="lobby-actions">
+        <button id="startBtn" class="primary big">Start Game</button>
+        <a id="shareBtn" class="text-link" href="#" role="button">Copy room link</a>
+        <a id="leaveBtn" class="text-link danger-link" href="#" role="button">Leave room</a>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="screen hidden">
+      <div id="opponents-stack" class="players-stack"></div>
+      <div id="game-spacer"></div>
+      <div id="game-bottom">
+        <div id="noBueno" class="no-bueno-banner hidden"></div>
+        <div id="stackInfo" class="stack-info"></div>
+        <div id="my-panel" class="players-stack"></div>
+        <div id="hand" class="hand"></div>
+      </div>
+      <span style="display:none"><span id="drawCount">0</span></span>
+    </section>
+
+    <!-- GAME OVER -->
+    <section id="gameover" class="screen hidden">
+      <div class="gameover-wrap">
+        <div class="gameover-title">Game Over</div>
+        <div id="winner-block" class="winner-block"></div>
+        <div id="scoreboard"></div>
+        <a id="goLeave" class="text-link" href="#" role="button">Back to home</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODALS -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-back"></div>
+    <div class="modal-body">
+      <button class="modal-close" id="modalClose">✕</button>
+      <h3 id="modalTitle"></h3>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="static/app.js"></script>
+</body>
+</html>
