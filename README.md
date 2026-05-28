@@ -30,10 +30,6 @@ Run tests:
 .venv/bin/pytest
 ```
 
-## Deployment
-
-Live at **https://example.com/games/tacos/** — deployed on an Azure VM, served by uvicorn behind nginx (TLS via Let's Encrypt), managed as a systemd unit. The app supports being mounted under any sub-path (e.g. `/games/tacos/`) — the client derives its API and WebSocket base from `location.pathname`, so no hardcoded URLs.
-
 ## License
 
 MIT. Game design © Alex Butler / Blue Wasabi Games — this is an unofficial fan implementation.

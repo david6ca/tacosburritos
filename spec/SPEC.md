@@ -14,7 +14,6 @@
 **Working title:** Taco vs. Burrito (digital adaptation of the real card game by Alex Butler / HotPatato Games, 2019).
 **Status:** Draft v0.2.
 **Target stack:** Python 3.11+ (FastAPI + `websockets`) authoritative server, vanilla JS/HTML/CSS browser client.
-**Deployment target:** example.com.
 
 > **Sources consulted.**
 > - Official site: https://www.tacovsburrito.com/pages/how-to-play (rules video + downloadable instructions)
